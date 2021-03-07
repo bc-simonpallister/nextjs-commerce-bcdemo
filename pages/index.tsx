@@ -16,7 +16,7 @@ export async function getStaticProps({
   const config = getConfig({ locale })
 
   const { products } = await getAllProducts({
-    variables: { first: 12 },
+    variables: { field: 'featuredProducts', first: 6 },
     config,
     preview,
   })
