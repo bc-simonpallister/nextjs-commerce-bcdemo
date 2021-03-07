@@ -15,10 +15,10 @@
 }
 
 .logo {
-  @apply cursor-pointer rounded-full border transform duration-100 ease-in-out;
-
+  height:40px;
+  width:40px;
+  
   &:hover {
-    @apply shadow-md;
-    transform: scale(1.05);
+    transform: scale(1.25);
   }
 }

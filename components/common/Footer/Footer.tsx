@@ -28,10 +28,10 @@ const Footer: FC<Props> = ({ className, pages }) => {
           <div className="col-span-1 lg:col-span-2">
             <Link href="/">
               <a className="flex flex-initial items-center font-bold md:mr-24">
-                <span className="rounded-full border border-gray-700 mr-2">
+                <span>
                   <Logo />
                 </span>
-                <span>ACME</span>
+                <span>BigCommerce</span>
               </a>
             </Link>
           </div>
@@ -97,7 +97,7 @@ const Footer: FC<Props> = ({ className, pages }) => {
         </div>
         <div className="py-12 flex flex-col md:flex-row justify-between items-center space-y-4">
           <div>
-            <span>&copy; 2020 ACME, Inc. All rights reserved.</span>
+            <span>&copy; 2021 BigCommerce. All rights reserved.</span>
           </div>
           <div className="flex items-center text-primary">
             <span className="text-primary">Crafted by</span>
