@@ -7,4 +7,4 @@ publishDir: out
 staticDir: public
 uploadDir: images
 dataDir: content/data
-pagesDir: content/pages
+pagesDir: pages
