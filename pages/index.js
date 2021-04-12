@@ -1,6 +1,9 @@
 import { Layout } from '@components/common'
 import { Grid, Marquee, Hero } from '@components/ui'
 import { ProductCard } from '@components/product'
+import SbEditable from 'storyblok-react'
+import Page from '../components/storyblok/Page'
+import StoryblokService from '../utils/storyblok-service'
 // import HomeAllProductsGrid from '@components/common/HomeAllProductsGrid'
 //import type { GetStaticPropsContext, InferGetStaticPropsType } from 'next'
 
@@ -20,6 +23,11 @@ export async function getStaticProps({ preview, locale }) {
 
   const { categories, brands } = await getSiteInfo({ config, preview })
   const { pages } = await getAllPages({ config, preview })
+  const {
+    data: { story },
+  } = await StoryblokService.get('cdn/stories/home')
+
+  //console.log(story)
 
   return {
     props: {
@@ -27,14 +35,18 @@ export async function getStaticProps({ preview, locale }) {
       categories,
       brands,
       pages,
+      story,
     },
     revalidate: 14400,
   }
 }
 
-export default function Home({ products, brands, categories }) {
+export default function Home({ products, brands, categories, story }) {
+  //console.log('index story content',story)
   return (
     <>
+      <Page content={story.content} />
+
       <Grid>
         {products.slice(0, 3).map((product, i) => (
           <ProductCard
