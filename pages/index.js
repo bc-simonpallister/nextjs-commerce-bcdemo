@@ -9,6 +9,13 @@ import getAllProducts from '@framework/product/get-all-products'
 import getSiteInfo from '@framework/common/get-site-info'
 import getAllPages from '@framework/common/get-all-pages'
 
+import StoryblokService from "../lib/storyblok"
+
+async function getStoryBlokContent(){
+  const { data } = await StoryblokService.get(`cdn/stories/home`, {version: "draft"})
+  return data
+}
+
 export async function getStaticProps({ preview, locale }) {
   const config = getConfig({ locale })
 
@@ -21,18 +28,26 @@ export async function getStaticProps({ preview, locale }) {
   const { categories, brands } = await getSiteInfo({ config, preview })
   const { pages } = await getAllPages({ config, preview })
 
+  const {story}  = await getStoryBlokContent()
+
+  console.log(story)
+
   return {
     props: {
       products,
       categories,
       brands,
       pages,
+      story
     },
     revalidate: 14400,
   }
 }
 
-export default function Home({ products, brands, categories }) {
+export default function Home({ products, brands, categories, story }) {
+
+  console.log(story)
+
   return (
     <>
       <Grid>
