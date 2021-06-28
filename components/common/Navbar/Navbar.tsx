@@ -27,7 +27,6 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
             <Link href="/search">
               <a className={s.link}>All</a>
             </Link>
-<<<<<<< HEAD
             <Link href="/search/new-arrivals">
               <a className={s.link}>New Arrivals</a>
             </Link>
@@ -37,13 +36,6 @@ const Navbar: FC<NavbarProps> = ({ links }) => (
             <Link href="/search/on-sale">
               <a className={s.link}>On Sale</a>
             </Link>
-=======
-            {links?.map((l) => (
-              <Link href={l.href} key={l.href}>
-                <a className={s.link}>{l.label}</a>
-              </Link>
-            ))}
->>>>>>> upstream/main
           </nav>
         </div>
         {process.env.COMMERCE_SEARCH_ENABLED && (
